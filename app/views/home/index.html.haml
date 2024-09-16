@@ -1,0 +1,12 @@
+%h1 Home#index
+%p Find me in app/views/home/index.html.haml
+
+= link_to 'Sign up', new_admin_registration_path, class: 'btn btn-secondary text-white'
+
+= link_to 'Sign in', new_admin_session_path, class: 'btn btn-secondary text-white'
+
+= link_to 'Sign up user', new_client_registration_path, class: 'btn btn-secondary text-white'
+
+= link_to 'Sign in user', new_client_session_path, class: 'btn btn-secondary text-white'
+- if client_signed_in?
+  = button_to 'Sign out', destroy_client_session_path, method: :delete, class: 'btn btn-danger'
