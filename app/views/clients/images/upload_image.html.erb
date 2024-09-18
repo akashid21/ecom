@@ -1,0 +1,13 @@
+<%= form_for current_client, url: update_image_clients_images_path, method: :patch do |form| %>
+  <%= form.label :images, "Upload Images" %>
+  <%= form.file_field :images, multiple: true, accept: 'image/png,image/jpg,image/jpeg', autocomplete: 'off' %>
+
+  <%= form.submit "Save" %>
+<% end %>
+
+<h2>Uploaded Images</h2>
+<h2><%= current_client.images.count%></h2>
+<% current_client.images.each do |image| %>
+  <%= image_tag image, size: "300x300" %>
+  <%= button_to 'Delete Image', delete_image_clients_image_path(image), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

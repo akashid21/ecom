@@ -37,8 +37,7 @@ RSpec.configure do |config|
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
   ]
-  config.include Capybara::DSL
-  config.include FactoryBot::Syntax::Method
+  config.include Devise::Test::IntegrationHelpers, type: :feature
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
